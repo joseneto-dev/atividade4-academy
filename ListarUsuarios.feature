@@ -9,3 +9,6 @@ Feature: Listar usuarios
     When method get
     Then status 200
     And match response == "#array"
+    And match response[*].tags[*].name == "#[] #string"
+    And match response[*].tags[*].email == "#[] #string"
+    And match response[*].tags[*].email == "#[] #number"

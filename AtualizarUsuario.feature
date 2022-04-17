@@ -3,12 +3,12 @@ Feature: Atualizar um usuario
     Desejo atualizar informações um usuario criado
 
     Scenario: Atualizar as informacoes de um usuario
-        * def id = "bd3fb2b6-87e8-40d9-a85a-94e7be6bbf2b"
+        * def id = "440231a9-1f22-4679-9d53-2966d9ecb392"
         * def jsonrequest =
           """
          {
-            "name":"José1",
-            "email":"jose1@raro.com.br"
+            "name":"José112",
+            "email":"jose112@raro.com.br"
          }
          """
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
@@ -17,3 +17,4 @@ Feature: Atualizar um usuario
         When method put
         Then status 200
         And match response == "#object"
+        And match response contains jsonrequest

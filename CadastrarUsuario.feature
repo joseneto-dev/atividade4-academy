@@ -6,8 +6,8 @@ Feature: Cadastrar um novo usario
     * def jsonrequest =
     """
     {
-        "name":"José",
-        "email":"jose@raro.com.br"
+        "name":"José1111",
+        "email":"jose1111@raro.com.br"
     }
     """
     Given url "https://crud-api-academy.herokuapp.com/api/v1"
@@ -16,3 +16,4 @@ Feature: Cadastrar um novo usario
     When method post
     Then status 201
     And match response == "#object"
+    And match response contains jsonrequest
