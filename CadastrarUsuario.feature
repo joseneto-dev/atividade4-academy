@@ -25,12 +25,12 @@ Background:
    * jsonrequest.email = randomString + "@raroacademy.com"
    
     Scenario: Cadastrar um novo usuario
-    Given url "https://crud-api-academy.herokuapp.com/api/v1"
-    And path "users"
-    Given request jsonrequest
-    When method post
-    Then status 201
-    And match response == "#object"
-    And match response contains jsonrequest
-     And match response[*].tags[*].createdAt =="#present"
-    And match response[*].tags[*].updatedAt =="#present"
+        Given url "https://crud-api-academy.herokuapp.com/api/v1"
+        And path "users"
+        Given request jsonrequest
+        When method post
+        Then status 201
+        And match response == "#object"
+        And match response contains jsonrequest
+        And match response[*].tags[*].createdAt =="#present"
+        And match response[*].tags[*].updatedAt =="#present"
