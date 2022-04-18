@@ -3,7 +3,7 @@ Feature: Atualizar um usuario
     Desejo atualizar informações um usuario criado
 
 Background:
-* def id = "02e1d912-e5ae-45aa-838a-10ee288720a2"
+* def id = "6e6635bc-896b-494d-a02d-768501716580"
 * def jsonrequest =
           """
          {
@@ -53,8 +53,8 @@ Background:
 * def jsonrequestemailusado =
     """
     {
-        "name":"Jose Novo 1112",
-        "email":"xIDOBNvOQG@raroacademy.com"
+        "name":"Aluno Academy Novo",
+        "email":"aluno@email.com"
     }
     """
    * jsonrequestgrande.name = randomStringgrande 

@@ -54,8 +54,8 @@ Background:
 * def jsonrequestemailusado =
     """
     {
-        "name":"Jose Novo 1112",
-        "email":"xIDOBNvOQG@raroacademy.com"
+        "name":"Aluno Academy Novo",
+        "email":"aluno@email.com"
     }
     """
    * jsonrequestgrande.name = randomStringgrande 
