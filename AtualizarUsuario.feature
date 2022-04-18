@@ -2,15 +2,30 @@ Feature: Atualizar um usuario
     Como um usuario da CrudAPI 
     Desejo atualizar informações um usuario criado
 
-    Scenario: Atualizar as informacoes de um usuario
-        * def id = "440231a9-1f22-4679-9d53-2966d9ecb392"
+Background: 
+* def random_String = 
+"""
+    function(s){
+        var text = "";
+        var pattern="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+        for(var i=0;i<s;i++)
+            text += pattern.charAt(Math.floor(Math.random() * pattern.length()));
+            return text;
+    }
+"""
+* def randomString = random_String(10)
+
+* def id = "382536e4-a178-4e0f-bbb1-b9437200eeb0"
         * def jsonrequest =
           """
          {
-            "name":"José112",
-            "email":"jose112@raro.com.br"
+           
          }
          """
+            * jsonrequest.name = randomString 
+            * jsonrequest.email = randomString + "@raroacademy.com"
+    Scenario: Atualizar as informacoes de um usuario
+        
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users", id
         Given request jsonrequest
@@ -18,3 +33,5 @@ Feature: Atualizar um usuario
         Then status 200
         And match response == "#object"
         And match response contains jsonrequest
+         And match response[*].tags[*].createdAt =="#present"
+         And match response[*].tags[*].updatedAt =="#present"
