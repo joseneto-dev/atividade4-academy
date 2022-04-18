@@ -14,6 +14,7 @@ Feature: Encontrar um usuario
         Then status 200
         And match response == "#object"
         And match response contains jsonrequest
+        And match response[*].tags[*].id =="#present"
         And match response[*].tags[*].createdAt =="#present"
         And match response[*].tags[*].updatedAt =="#present"
 

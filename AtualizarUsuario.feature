@@ -34,8 +34,8 @@ Background:
 * def jsonrequestincorreto =
     """
     {
-        "name":"xIDOBNvOQG111",
-        "email":"xIDOBNvOQG111@raroacademy.com"
+        "name":"Aluno Academy",
+        "email":"aluno@email.com"
     }
     """ 
 * def jsonrequestgrande =
