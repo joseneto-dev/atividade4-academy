@@ -3,10 +3,10 @@ Feature: Encontrar um usuario
     Desejo consultar um novo usuario criado
 
     Scenario: Buscar um usuario criado por id
-    * def id = "b1f4f71a-837e-4e07-a11c-20765874ec4b"
+    * def id = "1785fbf5-d99e-4ad3-918d-29bbad0bbd94"
     * def jsonrequest =
     """
-    {"id":"b1f4f71a-837e-4e07-a11c-20765874ec4b","name":"JCAjjUSFvt","email":"JCAjjUSFvt@raroacademy.com"}
+    {"id":"1785fbf5-d99e-4ad3-918d-29bbad0bbd94","name":"GjWrvkkxzQ","email":"GjWrvkkxzQ@raroacademy.com"}
     """
     Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users", id

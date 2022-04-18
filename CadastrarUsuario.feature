@@ -39,10 +39,16 @@ Background:
         "email":"aluno@email.com"
     }
     """ 
+* def jsonrequestgrandenome =
+    """
+    {
+     "email":"aluno222@email.com"
+    }
+    """
 * def jsonrequestgrande =
     """
     {
-   
+    "name":"Aluno Academy Novo",
     }
     """
 * def jsonrequestsemnome =
@@ -58,7 +64,7 @@ Background:
         "email":"aluno@email.com"
     }
     """
-   * jsonrequestgrande.name = randomStringgrande 
+   * jsonrequestgrandenome.name = randomStringgrande
    * jsonrequestgrande.email = randomStringemail + "@raroacademy.com"
     Scenario: Cadastrar um novo usuario
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
@@ -86,14 +92,21 @@ Background:
         When method post
         Then status 422
 
-    Scenario: Cadastrar um novo usuario com email com mais de caracteres
+    Scenario: Cadastrar um novo usuario com nome com mais de 100 caracteres
+        Given url "https://crud-api-academy.herokuapp.com/api/v1"
+        And path "users"
+        Given request jsonrequestgrandenome
+        When method post
+        Then status 400
+
+    Scenario: Cadastrar um novo usuario com email com mais de 60 caracteres
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users"
         Given request jsonrequestgrande
         When method post
         Then status 400
 
-Scenario: Cadastrar um novo usuario sem nome e email
+    Scenario: Cadastrar um novo usuario sem nome e email
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users"
         Given request jsonrequestsemnome

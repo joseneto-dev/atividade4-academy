@@ -3,12 +3,12 @@ Feature: Atualizar um usuario
     Desejo atualizar informações um usuario criado
 
 Background:
-* def id = "6e6635bc-896b-494d-a02d-768501716580"
+* def id = "eac814be-3cd0-485d-9af8-f2b46dae74e8"
 * def jsonrequest =
           """
          {
-           "name": "José Duarte",
-           "email": "jose@raroacademy.com"
+           "name": "José Duarte'11",
+           "email": "jose1'1'1@raroacademy.com"
          }
          """
 * def random_String = 
@@ -22,8 +22,8 @@ Background:
     }
 """
 * def randomString = random_String(10)
-* def randomStringgrande = random_String(101)
-* def randomStringemail = random_String(61)
+* def randomStringgrande = random_String(121)
+* def randomStringemail = random_String(71)
 * def jsonrequesterrado =
     """
     {
@@ -38,10 +38,16 @@ Background:
         "email":"aluno@email.com"
     }
     """ 
+* def jsonrequestgrandenome =
+    """
+    {
+     "email":"aluno222@email.com"
+    }
+    """
 * def jsonrequestgrande =
     """
     {
-   
+    "name":"Aluno Academy Novo",
     }
     """
 * def jsonrequestsemnome =
@@ -57,7 +63,7 @@ Background:
         "email":"aluno@email.com"
     }
     """
-   * jsonrequestgrande.name = randomStringgrande 
+   * jsonrequestgrandenome.name = randomStringgrande
    * jsonrequestgrande.email = randomStringemail + "@raroacademy.com"
 
     Scenario: Atualizar as informacoes de um usuario
@@ -86,12 +92,19 @@ Background:
         When method put
         Then status 422
 
-    Scenario: Atualizar as informacoes de um usuario com email com mais de caracteres
+    Scenario: Cadastrar um novo usuario com nome com mais de 100 caracteres
+        Given url "https://crud-api-academy.herokuapp.com/api/v1"
+        And path "users",id
+        Given request jsonrequestgrandenome
+        When method post
+        Then status 404
+
+    Scenario: Cadastrar um novo usuario com email com mais de 60 caracteres
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users",id
         Given request jsonrequestgrande
-        When method put
-        Then status 400
+        When method post
+        Then status 404
 
 Scenario: Atualizar as informacoes de um usuario sem nome e email
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
