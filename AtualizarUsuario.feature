@@ -3,7 +3,7 @@ Feature: Atualizar um usuario
     Desejo atualizar informações um usuario criado
 
 Background:
-* def id = "c55b3de0-0ca2-431f-9226-6a9cc33f64b9"
+* def id = "b1f4f71a-837e-4e07-a11c-20765874ec4b"
 * def jsonrequest =
           """
          {
