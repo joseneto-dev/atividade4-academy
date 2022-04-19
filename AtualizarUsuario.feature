@@ -105,7 +105,7 @@ Background:
         When method put
         Then status 400
 
- #   Scenario: Atualizar as informacoes de um usuario com email já criado
+#   Scenario: Atualizar as informacoes de um usuario com email já criado
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users",id
         Given request jsonrequestincorreto
@@ -113,14 +113,14 @@ Background:
         Then status 422
         And match response contains {"error":"E-mail already in use."}
 
-  #  Scenario: Cadastrar um novo usuario com nome com mais de 100 caracteres
+#  Scenario: Cadastrar um novo usuario com nome com mais de 100 caracteres
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users",id
         Given request jsonrequestgrandenome
         When method post
         Then status 404
 
-  #  Scenario: Cadastrar um novo usuario com email com mais de 60 caracteres
+#  Scenario: Cadastrar um novo usuario com email com mais de 60 caracteres
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users",id
         Given request jsonrequestgrande
