@@ -1,21 +1,31 @@
 Feature: Encontrar um usuario
     Como um usuario da CrudAPI 
     Desejo consultar um novo usuario criado
-
+Background:
+* def jsonrequestcriar =
+    """
+    {
+       "name":"Lula Livre",
+        "email":"lula13@pt.com.br"
+    }
+    """
     Scenario: Buscar um usuario criado por id
-    * def id = "1785fbf5-d99e-4ad3-918d-29bbad0bbd94"
-    * def jsonrequest =
-    """
-    {"id":"1785fbf5-d99e-4ad3-918d-29bbad0bbd94","name":"GjWrvkkxzQ","email":"GjWrvkkxzQ@raroacademy.com"}
-    """
+    Given url "https://crud-api-academy.herokuapp.com/api/v1"
+           And path "users"
+           Given request jsonrequestcriar
+           When method post
+           Then status 201
+           * def id = response.id 
     Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users", id
         When method get
         Then status 200
         And match response == "#object"
-        And match response contains jsonrequest
+        And match response contains jsonrequestcriar
         And match response[*].tags[*].id =="#present"
         And match response[*].tags[*].createdAt =="#present"
         And match response[*].tags[*].updatedAt =="#present"
-
+        And path "users", id
+        When method delete
+        Then status 204
     
