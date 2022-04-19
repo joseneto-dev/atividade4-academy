@@ -5,8 +5,8 @@ Background:
 * def jsonrequestcriar =
     """
     {
-        "name":"Lula Livre",
-        "email":"lula13@pt.com.br"
+        "name":"Lula Livre1313",
+        "email":"lula1313@pt.com.br"
     }
     """
     Scenario: Remover um usuario
@@ -16,7 +16,12 @@ Background:
         When method post
         Then status 201
         * def id = response.id 
-        Given url "https://crud-api-academy.herokuapp.com/api/v1"
         And path "users", id
+        When method delete
+        Then status 204
+
+    Scenario: Remover um usuario 
+        Given url "https://crud-api-academy.herokuapp.com/api/v1"
+        And path "users", "22567987-6818-468a-ad8c-9093eab5dbf7"
         When method delete
         Then status 204

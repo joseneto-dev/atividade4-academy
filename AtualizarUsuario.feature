@@ -18,15 +18,15 @@ Background:
 * def jsonrequest =
           """
          {
-           "name": "lula13",
-           "email": "lula13@pt.com"
+           "name": "lula1313",
+           "email": "lula1313@pt.com"
          }
          """
 * def jsonrequestcriar =
     """
     {
-        "name":"Lula Livre",
-        "email":"lula13@pt.com.br"
+        "name":"Lula Livre13",
+        "email":"lula1313@pt.com.br"
     }
     """
 
@@ -44,6 +44,7 @@ Background:
 * def jsonrequestincorreto =
     """
     {
+        "name":"Bolsonaro",
         "email":"aluno@email.com"
     }
     """ 
@@ -109,7 +110,8 @@ Background:
         And path "users",id
         Given request jsonrequestincorreto
         When method put
-        Then status 400
+        Then status 422
+        And match response contains {"error":"E-mail already in use."}
 
   #  Scenario: Cadastrar um novo usuario com nome com mais de 100 caracteres
         Given url "https://crud-api-academy.herokuapp.com/api/v1"

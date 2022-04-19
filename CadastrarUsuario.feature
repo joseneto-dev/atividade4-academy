@@ -74,9 +74,13 @@ Background:
         Then status 201
         And match response == "#object"
         And match response contains jsonrequest
+        * def id = response.id 
         And match response[*].tags[*].id =="#present"
         And match response[*].tags[*].createdAt =="#present"
         And match response[*].tags[*].updatedAt =="#present"
+        And path "users", id
+        When method delete
+        Then status 204
 
     Scenario: Cadastrar um novo usuario com email incorreto
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
@@ -91,6 +95,7 @@ Background:
         Given request jsonrequestincorreto
         When method post
         Then status 422
+        And match response contains  {"error":"User already exists."}
 
     Scenario: Cadastrar um novo usuario com nome com mais de 100 caracteres
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
@@ -119,4 +124,5 @@ Scenario: Cadastrar um novo usuario com email já utilizado
         Given request jsonrequestemailusado
         When method post
         Then status 422
+        And match response contains {"error":"User already exists."}
 

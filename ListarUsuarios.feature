@@ -3,8 +3,25 @@ Feature: Listar usuarios
     Desejo ver todos os usuarios
     Para ter uma visão geral dos cadastros
 
+Background:
+* def jsonrequestcriar =
+    """
+    {
+        "name":"Lula Livre1313",
+        "email":"lula1313@pt.com.br"
+    }
+    """
     Scenario: Listar todos os usuarios
+
         Given url "https://crud-api-academy.herokuapp.com/api/v1"
+        And path "users"
+        Given request jsonrequestcriar
+        When method post
+        Then status 201
+        * def id = response.id 
+        And path "users", id
+        When method delete
+        Then status 204
         And path "users"
         When method get
         Then status 200

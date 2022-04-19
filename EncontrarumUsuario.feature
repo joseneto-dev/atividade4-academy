@@ -5,8 +5,8 @@ Background:
 * def jsonrequestcriar =
     """
     {
-       "name":"Lula Livre",
-        "email":"lula13@pt.com.br"
+       "name":"Lula Livre12",
+        "email":"lula1312@pt.com.br"
     }
     """
     Scenario: Buscar um usuario criado por id
