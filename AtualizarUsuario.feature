@@ -18,8 +18,8 @@ Background:
 * def jsonrequest =
           """
          {
-           "name": "lula1313",
-           "email": "lula1313@pt.com"
+           "name": "lula13131313",
+           "email": "lula13131313@pt.com"
          }
          """
 * def jsonrequestcriar =

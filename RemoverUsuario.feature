@@ -5,8 +5,8 @@ Background:
 * def jsonrequestcriar =
     """
     {
-        "name":"Lula Livre1313",
-        "email":"lula1313@pt.com.br"
+        "name":"Lula Livre1313123",
+        "email":"lula13131331@pt.com.br"
     }
     """
     Scenario: Remover um usuario

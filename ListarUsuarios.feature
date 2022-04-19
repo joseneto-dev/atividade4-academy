@@ -7,8 +7,8 @@ Background:
 * def jsonrequestcriar =
     """
     {
-        "name":"Lula Livre1313",
-        "email":"lula1313@pt.com.br"
+        "name":"Lula Livre131312",
+        "email":"lula131133@pt.com.br"
     }
     """
     Scenario: Listar todos os usuarios
